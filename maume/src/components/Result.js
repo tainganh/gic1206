@@ -4,7 +4,8 @@ class Result extends Component {
   setStyle(){
     return {
       color : this.props.color,
-      borderColor :  this.props.color
+      borderColor :  this.props.color,
+      fontSize: this.props.fontSize
     }
   };
   render() {

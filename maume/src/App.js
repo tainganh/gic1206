@@ -26,19 +26,26 @@ class App extends Component {
     });
       
       }
-  
+    onSettingDefault=(value)=>{
+      this.setState({
+        color: (value ? 'yellow' : ''),
+        fontSize :(value ? 12 : 0)
+      });
+    }
   render() {
     return (
       <div className="container mt-50">
         <div className="row">
-              <ColorPicker color={this.state.color} onReceiveColor={ this.onsetColor}/> 
+              <ColorPicker 
+              color={this.state.color} 
+              onReceiveColor={ this.onsetColor}/> 
               {/* onReceiveColor dùng để nhận dữ liệu từ ColorPicker thông qua function onsetColor */}
           <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
               <SizeSetting 
                 fontSize={ this.state.fontSize}
                 onchangeSize= { this.onchangeSize}
               />
-              <Reset/>
+              <Reset onSettingDefault={ this.onSettingDefault}/>
           </div>                                             
         </div>
               <Result color={ this.state.color} fontSize={ this.state.fontSize} />
